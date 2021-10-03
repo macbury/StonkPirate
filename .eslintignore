@@ -1,0 +1,10 @@
+frontend/src/api/index.ts
+node_modules/
+tmp/
+vendor/
+storage/
+spec/
+log/
+lib/
+app/
+db/

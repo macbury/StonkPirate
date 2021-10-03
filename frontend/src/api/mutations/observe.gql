@@ -1,0 +1,7 @@
+mutation observe($ticker: String!) {
+  observe(input: { ticker: $ticker }) {
+    asset {
+      id
+    }
+  }
+}

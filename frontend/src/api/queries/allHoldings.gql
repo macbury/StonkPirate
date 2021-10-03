@@ -1,0 +1,42 @@
+#import "../fragments/ViewAsset.gql"
+#import "../fragments/ViewHolding.gql"
+
+fragment Amount on Money {
+  formatted
+  amount
+}
+
+query allHoldings($state: HoldingStateEnum, $ticker: ID) {
+  holdings(state: $state, ticker: $ticker) {
+    ...ViewHolding
+    openDate
+    openCommission {
+      ...Amount
+    }
+    openPrice {
+      ...Amount
+    }
+    openValue {
+      ...Amount
+    }
+    marketValue {
+      ...Amount
+    }
+    dailyChange {
+      amount
+      exchange {
+        formatted
+        amount
+      }
+    }
+    dailyChangePercent
+    netGainPercent
+    netGain {
+      amount
+      exchange {
+        amount
+        formatted
+      }
+    }
+  }
+}

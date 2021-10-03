@@ -1,0 +1,13 @@
+#import "../fragments/ViewAsset.gql"
+
+query allAssets($status: AssetStatusEnum!) {
+  assets(status: $status, observed: true) {
+    ...ViewAsset
+
+    dailyChange {
+      amount
+      formatted
+    }
+    dailyChangePercent
+  }
+}

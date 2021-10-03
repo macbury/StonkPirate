@@ -1,0 +1,31 @@
+fragment ViewAsset on Asset {
+  id
+  ticker {
+    symbol
+  }
+  currency {
+    id
+  }
+  kind
+  name
+  country {
+    flag
+    name
+    id
+  }
+  status
+  updatedAt
+  logoUrl
+  ticker {
+    url
+    exchange
+    id
+    symbol
+  }
+  marketValue {
+    formatted
+    amount
+  }
+  dailyChangePercent
+  yearChangePercent
+}

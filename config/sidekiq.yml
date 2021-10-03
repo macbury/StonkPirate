@@ -1,0 +1,24 @@
+:concurrency: 15
+
+:schedule:
+  sync_mbank:
+    cron: '0 0 12 * * *'
+    class: 'Assets::SyncMbankWorker'
+  sync_nbp:
+    cron: '0 0 12 * * *'
+    class: 'Assets::SyncNbpWorker'
+  sync_currency:
+    cron: '0 0 * * * *'
+    class: 'Assets::SyncCurrencyWorker'
+  sync_stocks:
+    cron: '0 0 */3 * * *'
+    class: 'Assets::SyncStocksWorker'
+    args: [true]
+  sync_broker_stocks:
+    cron: '0 0 0 * * *'
+    class: 'Assets::SyncStocksWorker'
+    args: [false]
+  sync_pko:
+    cron: '0 0 */6 * * *'
+    class: 'Assets::SyncPkoWorker'
+    

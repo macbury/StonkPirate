@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= (ENV.fetch("RAILS_MAX_THREADS") { 30 }).to_i + 1 %>
+  url: <%= ENV['DATABASE_URL'] %>
+  timeout: 5000
+  variables:
+    tcp_keepalives_idle: 60
+    tcp_keepalives_interval: 60
+    tcp_keepalives_count: 100
+
+development:
+  <<: *default
+  database: stonks_development
+
+test:
+  <<: *default
+  database: stonks_test
+
+production:
+  <<: *default
+  database: stonks_production
+  url: <%= ENV.fetch('DATABASE_URL') %>

@@ -1,0 +1,18 @@
+#import "../fragments/ViewAsset.gql"
+
+query findAsset($tickerId: String!) {
+  asset(ticker: $tickerId) {
+    ...ViewAsset
+    description
+    currencies {
+      id
+      isoCode
+      symbol
+    }
+
+    dailyChange {
+      amount
+      formatted
+    }
+  }
+}

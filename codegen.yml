@@ -1,0 +1,9 @@
+schema: schema.graphql
+documents: './frontend/src/**/*.gql'
+generates:
+  'frontend/src/api/index.ts':
+    config: 
+      withHooks: true
+    plugins:
+      - typescript
+      - typescript-operations

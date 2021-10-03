@@ -1,0 +1,10 @@
+#import "./ViewAsset.gql"
+
+fragment ViewHolding on Holding {
+  id
+  state
+  amount
+  asset {
+    ...ViewAsset
+  }
+}
